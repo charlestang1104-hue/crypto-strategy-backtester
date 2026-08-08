@@ -1,0 +1,21 @@
+{
+  "raw_validation": {
+    "rows": 8772,
+    "symbols": [
+      "BNBUSDT",
+      "BTCUSDT",
+      "ETHUSDT"
+    ],
+    "duplicate_bars": 0,
+    "missing_grid_bars": 0,
+    "non_positive_prices": 0,
+    "non_finite_values": 0
+  },
+  "cleaning": {
+    "duplicate_bars_removed": 0,
+    "missing_bars_repaired": 0,
+    "jump_bars_repaired": 0
+  },
+  "analysis_rows": 8772,
+  "bars_per_symbol": 2924
+}

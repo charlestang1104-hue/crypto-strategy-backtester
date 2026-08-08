@@ -1,15 +1,15 @@
 # Crypto Strategy Backtester Repository Design
 
 Date: 2026-08-08  
-Status: Approved in conversation; awaiting written-spec review
+Status: Approved on 2026-08-08
 
 ## 1. Objective
 
-Convert the existing algorithmic-trading coursework notebook into a polished, public, research-grade GitHub repository named `crypto-strategy-backtester`.
+Convert the existing algorithmic-trading source notebook into a polished, public, research-grade GitHub repository named `crypto-strategy-backtester`.
 
 The primary audience is recruiters and hiring managers for quantitative research and systematic-trading roles. A secondary audience is technical reviewers evaluating data engineering, testing, and software quality.
 
-The repository must preserve the original coursework files outside the new repository. It must not modify or overwrite the source notebook, source data, figures, or PDF report under `Algorithm trading/`.
+The repository must preserve the original project files outside the new repository. It must not modify or overwrite the source notebook, source data, figures, or PDF report under `Algorithm trading/`.
 
 ## 2. Positioning
 
@@ -24,7 +24,7 @@ The public narrative will emphasize:
 - risk metrics and limitations alongside returns;
 - modular Python code, tests, command-line usage, and CI.
 
-The public repository will not emphasize coursework codes, marks, student identifiers, local machine paths, or exaggerated performance claims.
+The public repository will not emphasize course codes, marks, student identifiers, local machine paths, or exaggerated performance claims.
 
 ## 3. Goals and Non-goals
 
@@ -32,7 +32,7 @@ The public repository will not emphasize coursework codes, marks, student identi
 
 - Reproduce the existing BTCUSDT, ETHUSDT, and BNBUSDT six-hour-bar analysis for 2024-01-01 through 2026-01-01.
 - Implement mean-reversion and trend-following strategies as independently testable modules.
-- Reproduce the existing coursework baseline results within documented numeric tolerances.
+- Reproduce the existing full-sample baseline results within documented numeric tolerances.
 - Add a chronological holdout view and multi-scenario transaction-cost analysis.
 - Provide a concise research notebook that calls package functions instead of containing the core implementation.
 - Provide an English README that communicates value, methodology, results, risks, and reproducibility within one page of initial scrolling.
@@ -58,7 +58,7 @@ The public repository will not emphasize coursework codes, marks, student identi
 ### Researcher workflow
 
 1. Create a Python environment and install the project.
-2. Run the coursework-baseline configuration.
+2. Run the full-sample baseline configuration.
 3. Inspect generated metrics, figures, and the research walkthrough notebook.
 4. Run the holdout configuration or change strategy/cost parameters in a copied configuration file.
 
@@ -83,7 +83,7 @@ crypto-strategy-backtester/
 │   └── workflows/
 │       └── ci.yml
 ├── configs/
-│   ├── coursework_baseline.yaml
+│   ├── full_sample_baseline.yaml
 │   └── holdout_evaluation.yaml
 ├── src/
 │   └── crypto_backtester/
@@ -119,7 +119,7 @@ crypto-strategy-backtester/
 │   ├── test_pipeline.py
 │   └── test_cli.py
 ├── artifacts/
-│   ├── coursework_baseline/
+│   ├── full_sample_baseline/
 │   │   ├── metrics/
 │   │   └── figures/
 │   └── holdout_evaluation/
@@ -176,7 +176,7 @@ crypto-strategy-backtester/
 `cli.py` exposes a console command named `crypto-backtester`. The primary command is:
 
 ```bash
-crypto-backtester reproduce --config configs/coursework_baseline.yaml
+crypto-backtester reproduce --config configs/full_sample_baseline.yaml
 ```
 
 Additional commands will validate cached data and run a configured experiment. CLI failures return non-zero exit codes.
@@ -207,9 +207,9 @@ All timestamps are UTC. Raw observations are never overwritten. Derived datasets
 
 ## 8. Experiment Designs
 
-### Coursework baseline
+### Full-sample baseline
 
-`coursework_baseline.yaml` reproduces the original fixed rules over 2024-01-01 through 2026-01-01:
+`full_sample_baseline.yaml` reproduces the original fixed rules over 2024-01-01 through 2026-01-01:
 
 - Assets: BTCUSDT, ETHUSDT, BNBUSDT.
 - Interval: six-hour bars.
@@ -229,7 +229,7 @@ Existing metrics and figures are used as regression references, subject to expli
 - Development view: 2024-01-01 through 2025-01-01.
 - Holdout view: 2025-01-01 through 2026-01-01.
 
-The holdout period is not used to optimize strategy parameters. The README will still disclose that the repository was constructed retrospectively from an existing full-sample coursework project, so this holdout is illustrative rather than a pristine deployment-grade out-of-sample test.
+The holdout period is not used to optimize strategy parameters. The README will still disclose that the repository was constructed retrospectively from an existing full-sample analysis, so this holdout is illustrative rather than a pristine deployment-grade out-of-sample test.
 
 ### Cost scenarios
 
@@ -308,7 +308,7 @@ The remaining section order is:
 1. Why this project.
 2. Methodology and anti-lookahead design.
 3. Three-command reproduction.
-4. Coursework-baseline and holdout results.
+4. Full-sample baseline and holdout results.
 5. Cost sensitivity and risk.
 6. Architecture and tests.
 7. Limitations and next research steps.
@@ -336,7 +336,7 @@ The Makefile delegates to package/CLI commands; it does not contain business log
 
 - No credentials, tokens, email passwords, personal identifiers, or local absolute paths may be committed.
 - The repository includes secret-oriented ignore patterns and is scanned before delivery.
-- The public README omits module codes, assessment language, and student identifiers.
+- The public README omits course codes, assessment language, and student identifiers.
 - The author name may appear in `CITATION.cff` and the research report.
 - Source data is attributed to Binance Vision and the Federal Reserve data source used by the pipeline.
 - The authored code is released under the MIT License. Third-party data and libraries remain under their own terms.
@@ -350,7 +350,7 @@ Implementation will copy or transform selected material from the source project 
 - create a new, concise `research_walkthrough.ipynb` that imports the package;
 - copy verified baseline figures and metrics as initial regression references;
 - copy the authored report to `docs/research-report.pdf`;
-- remove notebook metadata, local paths, and coursework-specific wording from the public surface;
+- remove notebook metadata, local paths, and course-specific wording from the public surface;
 - keep the original `Algorithm trading/` directory untouched.
 
 ## 16. Acceptance Criteria
@@ -364,7 +364,6 @@ The repository is ready for GitHub when all of the following are true:
 5. Holdout and cost-scenario outputs are present and clearly labeled.
 6. README numbers match committed artifact files.
 7. README includes real visuals, reproducibility commands, risk disclosure, limitations, data attribution, and licensing.
-8. The repository contains no secrets, personal identifiers, local absolute paths, virtual environment, cache, or coursework brief.
-9. The source coursework directory has no changes.
+8. The repository contains no secrets, personal identifiers, local absolute paths, virtual environment, cache, or project brief.
+9. The source project directory has no changes.
 10. Git history contains the approved design, implementation, and final verification commits.
-

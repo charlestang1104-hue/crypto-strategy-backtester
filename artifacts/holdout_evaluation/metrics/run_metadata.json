@@ -1,0 +1,18 @@
+{
+  "experiment": "holdout_evaluation",
+  "package_version": "1.0.0",
+  "python": "3.12.13",
+  "assets": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "BNBUSDT"
+  ],
+  "interval": "6h",
+  "sample_start": "2024-01-01",
+  "sample_end": "2026-01-01",
+  "anti_lookahead": "All executable positions use a one-bar signal lag.",
+  "data_sources": [
+    "https://data.binance.vision/",
+    "https://fred.stlouisfed.org/series/DFF"
+  ]
+}

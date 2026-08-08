@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this research code, please cite it as below."
+title: "Crypto Strategy Backtester"
+type: software
+authors:
+  - family-names: Tang
+    given-names: Qianfeng
+repository-code: "https://github.com/charlestang1104-hue/crypto-strategy-backtester"
+license: MIT
+version: 1.0.0
+date-released: 2026-08-08
+keywords:
+  - quantitative finance
+  - backtesting
+  - cryptocurrency
+  - trend following
+  - mean reversion

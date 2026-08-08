@@ -125,6 +125,7 @@ artifacts rather than hiding business logic inside notebook cells.
 | [`tests/`](tests/) | Unit, integration, CLI, and regression coverage |
 | [`data/README.md`](data/README.md) | Source attribution, fields, caching, and data policy |
 | [`docs/research-report.pdf`](docs/research-report.pdf) | Polished standalone research report |
+| [`docs/verification.md`](docs/verification.md) | Final test, package, artifact, privacy, and PDF QA record |
 
 ## Limitations
 
